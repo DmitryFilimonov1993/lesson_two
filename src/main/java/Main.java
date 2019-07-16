@@ -1,23 +1,35 @@
+import java.util.Arrays;
+
 public class Main {
+
+
+    // Максимальное значение числа вхождения в массив
+    public final static int MAX_VALUE = 5;
 
     public static void main(String[] args) {
 
         int array[] = new int [10];
 
         for(int i = 0; i < array.length; i++){
-            array[i] = (int)(Math.random()*6);
+            array[i] = (int)(Math.random()*5 + 1);
         }
         for (int items: array) {
             System.out.println(items);
         }
 
+        int[] temp = new int [MAX_VALUE + 1];
+        for (int i = 0; i < array.length; i++){
+            temp[array[i]] ++;
+        }
+
+
         System.out.println("Сумма массива равна " + Main.getSum(array)+"\n");
 
-        System.out.println("Число 1 встречается " + Main.getCountNumber(array, 1) + " раз(а)");
-        System.out.println("Число 2 встречается " + Main.getCountNumber(array, 2) + " раз(а)");
-        System.out.println("Число 3 встречается " + Main.getCountNumber(array, 3) + " раз(а)");
-        System.out.println("Число 4 встречается " + Main.getCountNumber(array, 4) + " раз(а)");
-        System.out.println("Число 5 встречается " + Main.getCountNumber(array, 5) + " раз(а)");
+        System.out.println("Число 1 встречается " + temp[1] + " раз(а)");
+        System.out.println("Число 2 встречается " + temp[2] + " раз(а)");
+        System.out.println("Число 3 встречается " + temp[3] + " раз(а)");
+        System.out.println("Число 4 встречается " + temp[4] + " раз(а)");
+        System.out.println("Число 5 встречается " + temp[5] + " раз(а)");
 
         char[] array_two = new char[12];
 
@@ -47,16 +59,6 @@ public class Main {
             sum += item;
         }
         return sum;
-    }
-
-    public static int getCountNumber(int[] arr, int number){
-
-        int count = 0;
-        for (int item : arr) {
-            if (item == number)
-                count++;
-        }
-        return count;
     }
 
     public static int getSumOdd(int[] arr){
