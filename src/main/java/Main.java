@@ -2,32 +2,31 @@ import java.util.Arrays;
 
 public class Main {
 
-
-    // Максимальное значение числа вхождения в массив
-    public final static int MAX_VALUE = 5;
+    public final static int ARRAY_SIZE = 10;
+    public final static int MAX_VALUE = 10;
+    public final static int MIN_VALUE = 1;
 
     public static void main(String[] args) {
 
-        int array[] = new int [10];
+        int array[] = new int [ARRAY_SIZE];
 
         for(int i = 0; i < array.length; i++){
-            array[i] = (int)(Math.random()*5 + 1);
+            array[i] = MIN_VALUE + (int)(Math.random()*(MAX_VALUE - MIN_VALUE + 1));
         }
         for (int items: array) {
             System.out.println(items);
         }
 
-        int[] temp = new int [MAX_VALUE + 1];
-        for (int i = 0; i < array.length; i++){
-            temp[array[i]] ++;
+        int[] temp = new int [MAX_VALUE - MIN_VALUE + 1];
+        for (int i = 0 ; i < array.length; i++){
+            temp[array[i] - MIN_VALUE] ++;
         }
 
         System.out.println("Сумма массива равна " + Main.getSum(array)+"\n");
 
-        for(int i = 1; i < temp.length; i++){
-            if (temp[i] == 0) i++;
-
-            System.out.println("Число " + i + " встречается " + temp[i] + " раз(а)");
+        for(int i = 0; i < temp.length; i++){
+            if (temp[i] == 0) continue;
+            System.out.println("Число " + (i + MIN_VALUE) + " встречается " + temp[i] + " раз(а)");
 
         }
 
