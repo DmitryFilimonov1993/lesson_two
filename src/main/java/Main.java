@@ -22,14 +22,14 @@ public class Main {
             temp[array[i]] ++;
         }
 
-
         System.out.println("Сумма массива равна " + Main.getSum(array)+"\n");
 
-        System.out.println("Число 1 встречается " + temp[1] + " раз(а)");
-        System.out.println("Число 2 встречается " + temp[2] + " раз(а)");
-        System.out.println("Число 3 встречается " + temp[3] + " раз(а)");
-        System.out.println("Число 4 встречается " + temp[4] + " раз(а)");
-        System.out.println("Число 5 встречается " + temp[5] + " раз(а)");
+        for(int i = 1; i < temp.length; i++){
+            if (temp[i] == 0) i++;
+
+            System.out.println("Число " + i + " встречается " + temp[i] + " раз(а)");
+
+        }
 
         char[] array_two = new char[12];
 
